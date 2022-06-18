@@ -1,0 +1,26 @@
+Results for the extraLargeArray
+insert 1.5236947 s
+append 4.1796 ms
+
+Results for the largeArray
+insert 12.053 ms
+append 629.1 μs     
+
+Results for the mediumArray
+insert 222.5 μs
+append 167.1 μs
+
+Results for the smallArray
+insert 60.5 μs
+append 188.8 μs
+
+Results for the tinyArray
+insert 46.8 μs
+append 107.2 μs
+
+// insert function actualy took some time.
+// μs "microsecond" = 1 millionth of a second
+
+In this test we are comparing the runtimes for two different functions. Both functions start with an iterator at zero and multiplies each iteration by 2, then adds the value onto the end of an array one by one for the length of the input utilizing one of two methods: push and unshift. Both methods have a runtime complexity of O(n), and appear to have the same end result, but the way that they do it differs. doublerInsert function, utilizing the unshift method will actually take longer because every time a number is inserted at the begining of the array, it will need to change the index value for every number following. For the push array, it only needs to add the number to the end. This is why the doublerAppend function (push) will have a faster runtime complexity than the doublerInsert (unshift).
+
+In terms of scaling, both functions are relatively quick but as the input value goes up from the largeArray (10,000) into the extraLargeArray (100,000), both methods become exceedingly more time consuming. By far the quickest method is the append method, utilizing .push(). It's runtime for the extraLargeArray is 4.17 ms over inserts runtime of 1.52 seconds. (nearly 365 times longer)
