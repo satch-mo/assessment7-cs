@@ -119,6 +119,21 @@ str3 = "Waxy and quivering, jocks fumble the pizza";
 //   `should return false`
 // );
 
+// alternative code (as provided by Lukas)
+
+const hasUniqueChars = (word) => {
+  let checker = {}; // Creating the empty object
+  for (let i = 0; i < word.length; i++) {
+    if (!checker[word[i]]) {
+      //If the letter doesn't exist in the object
+      checker[word[i]] = 1; //Add it as a key
+    } else {
+      return false; //If it does exist, throw false.
+    }
+  }
+  return true; //Otherwise if the loop ends, throw true.
+};
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // # 4 Longest Word
